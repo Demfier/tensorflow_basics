@@ -15,6 +15,9 @@ feed forward  + backprop = epoch
 
 mnist = input_data.read_data_sets("/tmp/data/", one_hot=True)
 
+learning_rate = 0.001
+hm_epochs = 10
+
 n_nodes_hl1 = 500
 n_nodes_hl2 = 500
 n_nodes_hl3 = 500
@@ -41,7 +44,6 @@ def neural_network_model(data):
                     'biases': tf.Variable(tf.random_normal([n_classes]))}
 
     # the model structure: (input * weights) + biases
-
     l1 = tf.add(tf.matmul(data, hidden_1_layer['weights']), hidden_1_layer['biases'])
     l1 = tf.nn.relu(l1)  # relu is the activation function
 
@@ -59,10 +61,7 @@ def neural_network_model(data):
 def train_neural_network(x):
     prediction = neural_network_model(x)
     cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(prediction, y))
-
-    optimizer = tf.train.AdamOptimizer(learning_rate=0.001).minimize(cost)
-
-    hm_epochs = 10
+    optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
 
     with tf.Session() as sess:
         sess.run(tf.initialize_all_variables())
