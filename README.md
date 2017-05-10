@@ -58,4 +58,4 @@ It contains two pieces of code:
         optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
         ```
 
-        Remember that we are just making the Graph of Neural Network. Now using the ```tf.Session.run(tf.initialize_all_variables())``` we will trigger all our nodes in the Graph active and finally performing the task ```hm_epochs``` times, we get out our final result.
+        Remember that we were declaring the graph of Neural Network until now. Using the ```tf.Session.run(tf.initialize_all_variables())``` we will trigger all our nodes in the Graph as active and finally performing the task ```hm_epochs``` times, we get out our final result.
