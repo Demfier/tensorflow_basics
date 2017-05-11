@@ -59,3 +59,5 @@ It contains two pieces of code:
         ```
 
         Remember that we were declaring the graph of Neural Network until now. Using the ```tf.Session.run(tf.initialize_all_variables())``` we will trigger all our nodes in the Graph as active and finally performing the task ```hm_epochs``` times, we get out our final result.
+
+For the implementation of some more complex neural networks like **RNN (Recursive Neural Network)** and **CNN (Convolutional Neural Network)** you can check out [this repo][!https://github.com/Demfier/sentiment_analysis]
